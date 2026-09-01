@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pixelandoak-nova.pages.dev/sitemap.xml

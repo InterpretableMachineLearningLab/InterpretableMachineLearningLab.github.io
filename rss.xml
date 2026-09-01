@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Interpretable Machine Learning Lab</title>
+    <link>https://interpretablemachinelearninglab.github.io/</link>
+    <description>The Interpretable Machine Learning Lab at Duke University, led by Cynthia Rudin. We build models that people can actually understand — sparse decision rules, interpretable neural networks, and dimensionality reduction methods that preserve real structure.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://interpretablemachinelearninglab.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Understanding PaCMAP</title>
+      <link>https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</link>
+      <guid isPermaLink="true">https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <description>An interactive tour of PaCMAP — a dimensionality-reduction method that preserves both local and global structure, with an animated mammoth, a Fashion-MNIST comparison, and a seed-stability test against t-SNE and UMAP.</description>
+      <category>dimensionality-reduction</category>
+      <category>pacmap</category>
+      <category>visualization</category>
+      <category>interactive</category>
+    </item>
+  </channel>
+</rss>
