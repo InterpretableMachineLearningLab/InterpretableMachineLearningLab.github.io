@@ -12,7 +12,7 @@
       <link>https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</link>
       <guid isPermaLink="true">https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</guid>
       <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
-      <description>An interactive tour of PaCMAP — a dimensionality-reduction method that preserves both local and global structure, with an animated mammoth, a Fashion-MNIST comparison, and a seed-stability test against t-SNE and UMAP.</description>
+      <description>A practitioner&apos;s guide to PaCMAP — when it beats t-SNE and UMAP, the five lines of code you need, what the three hyperparameters actually do, how to read the resulting plot without over-reading it, and which follow-up method to reach for when PaCMAP is not the right tool.</description>
       <category>dimensionality-reduction</category>
       <category>pacmap</category>
       <category>visualization</category>
