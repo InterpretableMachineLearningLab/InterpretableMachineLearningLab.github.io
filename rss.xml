@@ -3,7 +3,7 @@
   <channel>
     <title>Interpretable Machine Learning Lab</title>
     <link>https://interpretablemachinelearninglab.github.io/</link>
-    <description>Interactive write-ups from the Interpretable Machine Learning Lab at Duke University, whose PI is Cynthia Rudin. The lab designs machine learning models whose reasoning processes people can understand: extremely sparse models, interpretable neural networks, interpretable matching methods for causal inference, and dimension reduction for data visualization.</description>
+    <description>Interactive write-ups from the Interpretable Machine Learning Lab at Duke University. The lab designs machine learning models whose reasoning processes people can understand: extremely sparse models, interpretable neural networks, interpretable matching methods for causal inference, and dimension reduction for data visualization.</description>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://interpretablemachinelearninglab.github.io/rss.xml" rel="self" type="application/rss+xml"/>
