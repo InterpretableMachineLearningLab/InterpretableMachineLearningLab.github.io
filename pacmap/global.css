@@ -284,3 +284,115 @@ footer {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
+
+/* ============================================================================
+   Responsive fixes.
+
+   The Svelte sources for this article are not in this repository — only the
+   compiled bundle — so these override bundle.css from here. `!important` is
+   required twice over: the bundle's selectors carry a `.svelte-<hash>` class
+   that outranks a bare class selector, and bundle.css is loaded after this
+   file. The hashes below are copied verbatim from bundle.css and are pinned
+   to it; if the Svelte app is ever rebuilt, re-copy them.
+   ========================================================================== */
+
+/* ---------- the tablet dead zone --------------------------------------- */
+/* The bundle stacks its side-by-side figure panels at max-width: 800px, but
+   its 390px plot canvases need about 850px of figure width before they fit
+   two-across. An iPad in portrait (820px) lands in the gap: too narrow to fit
+   the layout, too wide to trigger the stacking, so the figures ran 31px past
+   the screen. Stacking at 1023px would fix that but costs the 2x2 mammoth
+   grid, which reads well on a tablet -- so the tablet case is handled instead
+   by the canvas and min-width rules further down, which let the panels shrink
+   to fit. Measured: 0px overflow at 820 and 1024 with the grid intact. */
+
+/* ---------- phones: reinforce the bundle's own stacking ---------------- */
+/* These are the bundle's max-width:800px rules replayed verbatim with
+   !important. The bundle already declares them, but several are outranked at
+   phone widths by later same-specificity rules, which left fixed-width
+   canvases sitting in half-width panels. Selectors and values are copied from
+   bundle.css unchanged; only the precedence differs. */
+
+@media (max-width: 800px) {
+  .container.svelte-vv6lwr { flex-direction: column !important; }
+  .top-row.svelte-s92b30 { flex-direction: column !important; }
+
+  .container.svelte-sqwiqe { flex-direction: column !important; }
+  .figures-container.svelte-sqwiqe { width: 90% !important; }
+  .menu.svelte-sqwiqe { width: 100% !important; }
+  .demo-select.svelte-sqwiqe { margin-top: 20px !important; }
+
+  .grid.svelte-8mwvr7 { grid-template-columns: 1fr !important; }
+  .wrap.svelte-1pml19h { grid-template-columns: 1fr !important; }
+  .panels.svelte-1uz34nb { grid-template-columns: 1fr !important; }
+
+  .container.svelte-1jfiwdb { width: 90% !important; margin-bottom: 0 !important; }
+  .container.svelte-w7grqr { width: 90% !important; margin-bottom: 0 !important; }
+  .container.svelte-1nfl3b0 { width: 100% !important; margin-bottom: 10px !important; }
+  .container.svelte-dmb53g { width: 100% !important; margin-bottom: 0 !important; }
+  .scatter-gl-container.svelte-dmb53g { min-height: 300px !important; }
+
+  .container.svelte-1dt95zr { min-height: 400px !important; }
+  .orbit.svelte-1dt95zr { top: 0 !important; }
+}
+
+/* ---------- things that overflow at any width -------------------------- */
+
+/* The plot canvases are sized in pixels. Let them scale down rather than
+   force the page wider than the screen. */
+canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Grid and flex children have a min-content floor by default, which is what
+   lets a fixed-width canvas widen the track it sits in. */
+.cell,
+.panel,
+.container {
+  min-width: 0;
+}
+
+/* KaTeX lays display math out at a fixed width and it cannot reflow, so give
+   the equation its own scroll region instead of letting it widen the page. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+
+/* ---------- phone ------------------------------------------------------ */
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 10px 64px;
+  }
+
+  /* Figure padding is a large share of a 390px screen; give it to the plots. */
+  figure {
+    padding: 10px 8px 4px !important;
+  }
+
+  p { font-size: 1.02rem; }
+  li { font-size: 1rem; }
+  h2 { font-size: 1.35rem; padding-top: 0.9em; margin-top: 2.6em; }
+  h3 { font-size: 1.1rem; }
+  table { font-size: 0.88rem; }
+  .katex-display { font-size: 0.9em; }
+}
+
+/* Bare URLs in the Code section are single unbreakable tokens ~460px wide,
+   which is wider than a phone. `anywhere` (not `break-word`) is required:
+   only `anywhere` reduces the element's min-content width, which is what
+   stops it widening the page. */
+a {
+  overflow-wrap: anywhere;
+}
+
+/* The article wrapper is `max-width: 780px; width: 100%; padding: 0 18px`
+   under the default content-box, so its 36px of padding sits outside the
+   100% and pushes the page 36px wider than the screen. */
+.container.svelte-1gw5lvs {
+  box-sizing: border-box;
+}
