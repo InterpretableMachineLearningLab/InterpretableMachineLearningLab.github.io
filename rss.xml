@@ -3,7 +3,7 @@
   <channel>
     <title>Interpretable Machine Learning Lab</title>
     <link>https://interpretablemachinelearninglab.github.io/</link>
-    <description>The Interpretable Machine Learning Lab at Duke University, led by Cynthia Rudin. We build models that people can actually understand — sparse decision rules, interpretable neural networks, and dimensionality reduction methods that preserve real structure.</description>
+    <description>Interactive write-ups from the Interpretable Machine Learning Lab at Duke University, whose PI is Cynthia Rudin. The lab designs machine learning models whose reasoning processes people can understand: extremely sparse models, interpretable neural networks, interpretable matching methods for causal inference, and dimension reduction for data visualization.</description>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://interpretablemachinelearninglab.github.io/rss.xml" rel="self" type="application/rss+xml"/>
@@ -12,7 +12,7 @@
       <link>https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</link>
       <guid isPermaLink="true">https://interpretablemachinelearninglab.github.io/articles/understanding-pacmap/</guid>
       <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
-      <description>A practitioner&apos;s guide to PaCMAP — when it beats t-SNE and UMAP, the five lines of code you need, what the three hyperparameters actually do, how to read the resulting plot without over-reading it, and which follow-up method to reach for when PaCMAP is not the right tool.</description>
+      <description>A practitioner&apos;s guide to PaCMAP: when it beats t-SNE and UMAP, the five lines of code you need, what the three hyperparameters actually do, how to read the resulting plot without over-reading it, and which follow-up method to reach for when PaCMAP is not the right tool.</description>
       <category>dimensionality-reduction</category>
       <category>pacmap</category>
       <category>visualization</category>
