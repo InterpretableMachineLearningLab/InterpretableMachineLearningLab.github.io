@@ -25,5 +25,42 @@
 
   <body>
     <script defer src="/pacmap/bundle.js" type="text/javascript"></script>
+
+    <!--
+      Visible credit for the work this article is adapted from.
+
+      The Apache-2.0 header and the "adapted from Understanding UMAP" note
+      live in the Svelte source, which the compiler strips: a reader of the
+      published page saw no attribution at all. The Svelte source is not in
+      this repository, so the credit is added here instead.
+
+      Svelte mounts with `target: document.body`, which APPENDS, so an element
+      written here would render above the article. The script moves it to the
+      end once the app has mounted.
+    -->
+    <footer id="article-credit" hidden>
+      <p>
+        Adapted from
+        <a href="https://pair-code.github.io/understanding-umap/">Understanding UMAP</a>
+        by Andy Coenen and Adam Pearce (Google PAIR, 2019), used under the
+        <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.
+        The text, figures and data here were rewritten for PaCMAP.
+      </p>
+      <p>
+        An unofficial site, built and maintained by members of the
+        Interpretable Machine Learning Lab at Duke University. Not reviewed or
+        endorsed by the lab's PI.
+        <a href="https://users.cs.duke.edu/~cynthia/lab.html">Official lab page</a>.
+      </p>
+    </footer>
+
+    <script>
+      addEventListener("load", function () {
+        var el = document.getElementById("article-credit");
+        if (!el) return;
+        document.body.appendChild(el);
+        el.hidden = false;
+      });
+    </script>
   </body>
 </html>

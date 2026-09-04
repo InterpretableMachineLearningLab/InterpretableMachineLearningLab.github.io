@@ -396,3 +396,20 @@ a {
 .container.svelte-1gw5lvs {
   box-sizing: border-box;
 }
+
+/* ---------- credit footer (see index.html) ----------------------------- */
+
+#article-credit {
+  max-width: 780px;
+  margin: 4em auto 0;
+  padding: 1.6em 18px 0;
+  border-top: 1px solid var(--border-soft);
+  box-sizing: border-box;
+}
+
+#article-credit p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0.5em 0;
+}
