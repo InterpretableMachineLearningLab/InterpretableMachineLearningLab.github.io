@@ -420,11 +420,11 @@ a {
    Six of the 24 toy datasets are withdrawn: Linked Clusters, Rotated lines,
    Rotated lines (clustered), Sine frequency, Orthogonal Steps and Equally
    Spaced. The first four duplicate structure already shown by their
-   neighbours in the grid, and the last two project to a near-empty panel at
+   neighbors in the grid, and the last two project to a near-empty panel at
    these settings, so as thumbnails they read as broken rather than as data.
 
    They are hidden here rather than deleted from the data, because the Svelte
-   source for this article is not in this repository and every visualisation
+   source for this article is not in this repository and every visualization
    indexes its precomputed frames by POSITION in the demo list
    (allData[selectedDemoIndex]). Dropping entries from the JSON would shift
    every later dataset onto the wrong animation. Hiding keeps the indices
