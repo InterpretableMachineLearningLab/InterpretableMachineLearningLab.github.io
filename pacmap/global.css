@@ -1,5 +1,5 @@
 /* ============================================================================
-   Understanding PaCMAP — editorial styling.
+   Understanding PaCMAP: editorial styling.
    Layered on top of Google PAIR's original global.css (Apache 2.0).
    ========================================================================== */
 
@@ -288,8 +288,8 @@ footer {
 /* ============================================================================
    Responsive fixes.
 
-   The Svelte sources for this article are not in this repository — only the
-   compiled bundle — so these override bundle.css from here. `!important` is
+   The Svelte sources for this article are not in this repository. Only the
+   compiled bundle is, so these override bundle.css from here. `!important` is
    required twice over: the bundle's selectors carry a `.svelte-<hash>` class
    that outranks a bare class selector, and bundle.css is loaded after this
    file. The hashes below are copied verbatim from bundle.css and are pinned
