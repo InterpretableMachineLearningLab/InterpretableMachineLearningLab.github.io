@@ -49,6 +49,53 @@
     </footer>
 
     <script>
+      /*
+        Stamp each toy-dataset tile with its index in the demo list.
+
+        Both pickers render the same 24 datasets, but they group them
+        differently and Figure 6 re-chunks its rows with the viewport (four
+        rows of six on a desktop, three rows of eight on a phone), so a CSS
+        :nth-child rule that is correct on one screen is wrong on another.
+        Indexing by position in the container fixes that. global.css hides the
+        withdrawn datasets by this attribute.
+
+        The Svelte source for this article is not in this repository, so this
+        runs from outside the app; the observer re-stamps after the app
+        re-renders or re-chunks a row.
+      */
+      (function () {
+        var PICKERS = [".data-menu", ".demo-select"];
+
+        function stamp() {
+          PICKERS.forEach(function (selector) {
+            document.querySelectorAll(selector).forEach(function (root) {
+              var tiles = root.querySelectorAll(".demo-data");
+              for (var i = 0; i < tiles.length; i++) {
+                if (tiles[i].getAttribute("data-demo-index") !== String(i)) {
+                  tiles[i].setAttribute("data-demo-index", String(i));
+                }
+              }
+            });
+          });
+        }
+
+        var queued = false;
+        function schedule() {
+          if (queued) return;
+          queued = true;
+          requestAnimationFrame(function () { queued = false; stamp(); });
+        }
+
+        stamp();
+        addEventListener("load", stamp);
+        new MutationObserver(schedule).observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
+      })();
+    </script>
+
+    <script>
       addEventListener("load", function () {
         var el = document.getElementById("article-credit");
         if (!el) return;

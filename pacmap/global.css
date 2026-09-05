@@ -413,3 +413,79 @@ a {
   color: var(--ink-muted);
   margin: 0.5em 0;
 }
+
+/* ============================================================================
+   Toy-dataset pickers (Figures 5 and 6)
+
+   Six of the 24 toy datasets are withdrawn: Linked Clusters, Rotated lines,
+   Rotated lines (clustered), Sine frequency, Orthogonal Steps and Equally
+   Spaced. The first four duplicate structure already shown by their
+   neighbours in the grid, and the last two project to a near-empty panel at
+   these settings, so as thumbnails they read as broken rather than as data.
+
+   They are hidden here rather than deleted from the data, because the Svelte
+   source for this article is not in this repository and every visualisation
+   indexes its precomputed frames by POSITION in the demo list
+   (allData[selectedDemoIndex]). Dropping entries from the JSON would shift
+   every later dataset onto the wrong animation. Hiding keeps the indices
+   intact, so nothing can desynchronise.
+
+   Indices removed (0-based): 1, 2, 3, 4, 19, 22.
+   ========================================================================== */
+
+/* The two pickers hold the same 24 tiles but group them differently, and
+   Figure 6 re-chunks its rows with the viewport (four rows of six on a
+   desktop, three rows of eight on a phone), so a :nth-child rule that is
+   correct on one screen is wrong on another. A small script in index.html
+   stamps every tile with its position in the demo list instead; these rules
+   key off that, which holds at any width. */
+
+.demo-data[data-demo-index="1"],
+.demo-data[data-demo-index="2"],
+.demo-data[data-demo-index="3"],
+.demo-data[data-demo-index="4"],
+.demo-data[data-demo-index="19"],
+.demo-data[data-demo-index="22"] {
+  display: none !important;
+}
+
+/* ---------- reflow both pickers ----------------------------------------- */
+/* The tiles were laid out with floats and percentage widths, which leaves
+   ragged rows once six are hidden -- Figure 6 is worst, because its four rows
+   are fixed containers and would come out 2, 6, 6, 4. Both pickers become one
+   grid instead. `display: contents` on Figure 6's row wrappers lets its tiles
+   participate in the outer grid directly, so the remaining 18 fill 6 x 3
+   evenly without renumbering anything. */
+
+.data-menu,
+.demo-select {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  float: none !important;
+}
+
+.demo-select > .demos {
+  display: contents !important;
+}
+
+.data-menu > .demo-data,
+.demo-select .demo-data {
+  width: auto !important;
+  float: none !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 480px) {
+  .data-menu,
+  .demo-select {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .data-menu,
+  .demo-select {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
